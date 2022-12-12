@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Zuber</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+
+<body>
+    <header>
+        <h5>Designed by Zuber Ahmad.</h5>
+        <h1>Full Stack Booking Appointment App</h1>
+    </header>
+
+    <section class="container">
+        <form id="my-form" action="/" method="post">
+            <h1>Add User</h1>
+            <div class="msg"></div>
+
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="number">Phone Number:</label><br>
+            <input type="number" id="phone" name="phone"><br>
+
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+
+            <input class="btn" type="submit" value="Submit">
+        </form>
+
+        <ul id="users"></ul>
+
+    </section>
+
+</body>
+<script>
+
+    let form = document.getElementById('my-form');
+    let itemList = document.getElementById('users');
+    
+    
+    
+
+    //for display list on screen
+    function showNewUserOnscreen(obj) {
+        let li = document.createElement('li');
+        li.style.backgroundColor = '#c05e5e';
+        li.style.color = 'white';
+
+        li.appendChild(document.createTextNode(obj.name));
+        li.appendChild(document.createTextNode(" "));
+        li.appendChild(document.createTextNode(obj.email));
+        itemList.appendChild(li);
+
+        //make empty name and email for new user 
+        let val = document.querySelector('#name');
+        let val2 = document.querySelector('#email');
+        val.value = null;
+        val2.value = null;
+
+        //delete and edit button creating.
+        delEdit(li);
+        itemList.appendChild(li);
+    }
+
+
+    //function for delete and edit button.
+    function delEdit(li) {
+        let del = document.createElement('button');
+        let edit = document.createElement('button');
+        del.className = "delete";
+        edit.className = "edit";
+        del.appendChild(document.createTextNode('Delete'));
+        edit.appendChild(document.createTextNode('Edit'));
+        li.appendChild(del);
+        li.appendChild(edit);
+    }
+
+</script>
+
+</html>
